@@ -3,18 +3,11 @@ public:
     int maxProfit(vector<int>& prices) 
     {   
         int ans = 0;
-        unordered_set<int> hash;
-        int i = 0;
-        for (int i = 0; i < prices.size() - 1; i++)
+        int min_price = prices[0];
+        for (auto p : prices)
         {
-            for (int j = i + 1; j < prices.size(); j++)
-            {
-                if (i < j && prices[i] < prices[j])
-                {
-                    ans = max(ans, prices[j] - prices[i]);
-                    hash.insert(prices[j] - prices[i]);
-                }
-            }
+            ans = max(ans, p - min_price);
+            min_price = min(min_price, p);
         }
         return ans;
     }
