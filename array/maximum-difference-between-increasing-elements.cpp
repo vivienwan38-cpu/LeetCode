@@ -7,7 +7,6 @@ public:
             ans = max(ans, n - min_num);
             min_num = min(min_num, n);
         }
-        if (ans == 0) return -1;
-        else return ans;
+        return ans ? ans : -1;
     }
 };
