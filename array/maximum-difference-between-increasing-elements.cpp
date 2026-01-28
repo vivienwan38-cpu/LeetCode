@@ -1,12 +1,14 @@
 class Solution {
 public:
-    int maximumDifference(vector<int>& nums) {
+    int maximumDifference(vector<int>& nums) 
+    {
         int ans = -1;
-        int min_num = nums[0];
-        for (auto n : nums){
-            ans = max(ans, n - min_num);
-            min_num = min(min_num, n);
+        int lo = nums[0];
+        for (auto n : nums)
+        {
+            lo = min(lo, n);
+            ans = max(ans, n - lo);
         }
-        return ans ? ans : -1;
+        return ((ans == 0) ? -1 : ans);
     }
 };
