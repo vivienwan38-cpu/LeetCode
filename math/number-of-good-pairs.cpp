@@ -3,11 +3,9 @@ public:
     int numIdenticalPairs(vector<int>& nums) {
         unordered_map<int,int> hash;
         int counter = 0;
-        for (int i = 0; i < nums.size() - 1; i++) {
-            for (int j = i + 1; j < nums.size(); j++) {
-                if (nums[i] == nums[j])
-                    counter++;
-            }
+        for (int n : nums) {
+            counter += hash[n];
+            hash[n]++;
         }
         return counter;
     }
